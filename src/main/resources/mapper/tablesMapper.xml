@@ -4,7 +4,7 @@
 	
 	<!-- 查询所有的表名称和备注 -->
 	<select id="findAll" resultType="TableInfo">
-		SELECT table_name,table_comment FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=#{value}  and TABLE_NAME in ('titles')
+		SELECT table_name,table_comment FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA=#{value} -- and TABLE_NAME in ('titles')
 	</select>
 	
 	<!-- 根据表获取表字段 -->
