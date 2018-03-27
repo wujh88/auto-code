@@ -11,7 +11,7 @@ public final class InterfaceMethod {
 	/**
 	 * Save Method
 	 * @return
-	 * 2016年8月24日上午10:00:59
+	 * 2018年3月24日上午10:00:59
 	 */
 	public static String mapperSave(TableInfo info) {
 		StringBuilder builder = new StringBuilder();
@@ -37,7 +37,7 @@ public final class InterfaceMethod {
 	/**
 	 * Update Method
 	 * @return
-	 * 2016年8月24日上午10:00:59
+	 * 2018年3月24日上午10:00:59
 	 */
 	public static String mapperUpdate(TableInfo info) {
 		StringBuilder builder = new StringBuilder();
@@ -63,7 +63,7 @@ public final class InterfaceMethod {
 	/**
 	 * Delete Method
 	 * @return
-	 * 2016年8月24日上午10:00:59
+	 * 2018年3月24日上午10:00:59
 	 */
 	public static String mapperDelete() {
 		StringBuilder builder = new StringBuilder();
@@ -87,7 +87,7 @@ public final class InterfaceMethod {
 	/**
 	 * Delete Method
 	 * @return
-	 * 2016年8月24日上午10:00:59
+	 * 2018年3月24日上午10:00:59
 	 */
 	public static String mapperFindOne(TableInfo info) {
 		StringBuilder builder = new StringBuilder();

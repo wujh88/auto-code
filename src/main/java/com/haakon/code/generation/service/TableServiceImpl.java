@@ -47,7 +47,7 @@ public class TableServiceImpl implements TableService {
 	/**
 	 * 处理表字段
 	 * @param info
-	 * 2016年8月16日下午1:47:28
+	 * @since 2018年3月24日下午1:47:28
 	 */
 	private void handlerTableColumn(TableInfo info) {
 		List<ColumnInfo> columns = findColumn(info.getTableName(), ConfigConstants.SCHEMA);
@@ -78,7 +78,7 @@ public class TableServiceImpl implements TableService {
 	 * @param dir
 	 * @param fileName
 	 * @param content
-	 * 2016年8月16日下午2:50:55
+	 * @since 2018年3月24日下午2:50:55
 	 */
 	private void writeFile(String dir, String fileName, String content){
 		File dic = new File(dir);

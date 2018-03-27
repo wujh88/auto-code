@@ -31,7 +31,7 @@ public class JavaBeanHandler {
 	
 	/**
 	 * 生成包文件头 Ex:package com.lance.code.generation.common
-	 * 2016年8月16日下午2:18:16
+	 * @since 2018年3月24日下午2:18:16
 	 */
 	public static String domainPackageHeader(){
 		StringBuilder builder = new StringBuilder(KeyWords.PACKAGE);
@@ -42,7 +42,7 @@ public class JavaBeanHandler {
 	 * 创建Domain
 	 * @param info
 	 * @param columns
-	 * 2016年8月16日下午2:46:00
+	 * @since 2018年3月24日下午2:46:00
 	 */
 	public static String createDomain(TableInfo info, List<ColumnInfo> columns) {
 		StringBuilder builder = new StringBuilder(domainPackageHeader());
@@ -159,7 +159,7 @@ public class JavaBeanHandler {
 	/**
 	 * 创建Mapper
 	 * @param info
-	 * 2016年8月16日下午2:46:00
+	 * @since 2018年3月24日下午2:46:00
 	 */
 	public static String createMapper(TableInfo info) {
 		StringBuilder builder = new StringBuilder(mapperPackageHeader());
@@ -269,7 +269,7 @@ public class JavaBeanHandler {
 	/**
 	 * 创建Service
 	 * @param info
-	 * 2016年8月16日下午2:46:00
+	 * @since 2018年3月24日下午2:46:00
 	 */
 	public static String createService(TableInfo info) {
 		StringBuilder builder = new StringBuilder(servicePackageHeader());
@@ -311,7 +311,7 @@ public class JavaBeanHandler {
 	/**
 	 * 创建ServiceImpl
 	 * @param info
-	 * 2016年8月16日下午2:46:00
+	 * @since 2018年3月24日下午2:46:00
 	 */
 	public static String createServiceImpl(TableInfo info) {
 		//Service导入的Mapper接口类
@@ -369,7 +369,7 @@ public class JavaBeanHandler {
 	 * 处理类名称
 	 * @param className
 	 * @return
-	 * 2016年8月16日下午2:42:20
+	 * @since 2018年3月24日下午2:42:20
 	 */
 	public static String domainClassName(String className){
 		className = StringUtils.substringAfter(className, ConfigConstants.REMOVE_TABLE_PREFIX);
@@ -386,7 +386,7 @@ public class JavaBeanHandler {
 	 * 处理类名称
 	 * @param className
 	 * @param suffix
-	 * 2016年8月16日下午5:44:13
+	 * @since 2018年3月24日下午5:44:13
 	 */
 	public static String className(String className, String suffix){
 		className = StringUtils.substringAfter(className, ConfigConstants.REMOVE_TABLE_PREFIX);
@@ -402,7 +402,7 @@ public class JavaBeanHandler {
 	/**
 	 * 处理属性名字
 	 * @param attr
-	 * 2016年8月16日下午4:15:12
+	 * @since 2018年3月24日下午4:15:12
 	 */
 	public static String attrName(String attr, boolean isCapitalize){
 		String[] _attrs = StringUtils.split(attr, "_");
@@ -422,7 +422,7 @@ public class JavaBeanHandler {
 	 * 转化类型
 	 * @param type
 	 * @return
-	 * 2016年8月16日下午4:29:29
+	 * @since 2018年3月24日下午4:29:29
 	 */
 	public static String changeType(String type){
 		switch (type.toLowerCase()) {

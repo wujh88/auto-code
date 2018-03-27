@@ -10,7 +10,7 @@ public interface TableService {
 	 * 根据Schema查询所有表信息
 	 * @param schema
 	 * @return
-	 * 2016年8月16日上午9:44:53
+	 * @since 2018年3月24日上午9:44:53
 	 */
 	List<TableInfo> findAll(String schema);
 	

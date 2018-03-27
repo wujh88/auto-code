@@ -13,7 +13,7 @@ public final class XMLMethod {
 	 * XML Save
 	 * @param info
 	 * @return
-	 * 2016年8月24日上午10:43:56
+	 * @since 2018年3月24日上午10:43:56
 	 */
 	public static String xmlFindOne(TableInfo info) {
 		StringBuilder builder = new StringBuilder();
@@ -36,7 +36,7 @@ public final class XMLMethod {
 	 * XML Delete
 	 * @param info
 	 * @return
-	 * 2016年8月24日上午10:43:56
+	 * @since 2018年3月24日上午10:43:56
 	 */
 	public static String xmlDelete(TableInfo info) {
 		StringBuilder builder = new StringBuilder();
@@ -57,7 +57,7 @@ public final class XMLMethod {
 	 * XML save
 	 * @param info
 	 * @return
-	 * 2016年8月24日上午10:43:56
+	 * @since 2018年3月24日上午10:43:56
 	 */
 	public static String xmlSave(TableInfo info, List<ColumnInfo> columns) {
 		StringBuilder builder = new StringBuilder();
@@ -97,7 +97,7 @@ public final class XMLMethod {
 	/**
 	 * 获取主键
 	 * @param columns
-	 * @since 2016年11月2日下午1:41:43
+	 * @since 2018年3月24日下午1:41:43
 	 */
 	private static String getPrimaryKey(List<ColumnInfo> columns){
 		for(ColumnInfo column: columns) {
@@ -113,7 +113,7 @@ public final class XMLMethod {
 	 * @param info
 	 * @param columns
 	 * @return
-	 * 2016年8月24日下午1:12:49
+	 * @since 2018年3月24日下午1:12:49
 	 */
 	public static String xmlUpdate(TableInfo info, List<ColumnInfo> columns) {
 		StringBuilder builder = new StringBuilder();
