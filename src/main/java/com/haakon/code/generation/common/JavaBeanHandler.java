@@ -1,4 +1,4 @@
-package com.lance.code.generation.common;
+package com.haakon.code.generation.common;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -9,8 +9,8 @@ import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
-import com.lance.code.generation.domain.ColumnInfo;
-import com.lance.code.generation.domain.TableInfo;
+import com.haakon.code.generation.domain.ColumnInfo;
+import com.haakon.code.generation.domain.TableInfo;
 
 public class JavaBeanHandler {
 
@@ -70,7 +70,7 @@ public class JavaBeanHandler {
 		.append(KeyWords.NEWLINE)
 		.append("* ").append(info.getTableComment())
 		.append(KeyWords.NEWLINE)
-		.append("* ").append("@author SinoTech")
+		.append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
@@ -175,7 +175,7 @@ public class JavaBeanHandler {
 		.append(KeyWords.NEWLINE)
 		.append("* ").append(info.getTableComment())
 		.append(KeyWords.NEWLINE)
-		.append("* ").append("@author SinoTech")
+		.append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
@@ -281,7 +281,7 @@ public class JavaBeanHandler {
 		.append(KeyWords.NEWLINE)
 		.append("* ").append(info.getTableComment())
 		.append(KeyWords.NEWLINE)
-		.append("* ").append("@author SinoTech")
+		.append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
@@ -318,7 +318,7 @@ public class JavaBeanHandler {
 		String importMapper = className(info.getTableName(), ConfigConstants.MAPPER_PACKAGE);
 		
 		StringBuilder builder = new StringBuilder(servicePackageHeader());
-		builder.append(KeyWords.SEMICOLON)
+		builder.append(".impl").append(KeyWords.SEMICOLON)
 		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE)
 		
 		//导入包
@@ -337,7 +337,7 @@ public class JavaBeanHandler {
 		.append(KeyWords.NEWLINE)
 		.append("* ").append(info.getTableComment())
 		.append(KeyWords.NEWLINE)
-		.append("* ").append("@author SinoTech")
+		.append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)

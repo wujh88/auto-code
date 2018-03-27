@@ -1,10 +1,11 @@
-package com.lance.code.generation.domain;
+package com.haakon.code.generation.domain;
 
 import java.io.Serializable;
 
 public class TableInfo implements Serializable{
-	private static final long serialVersionUID = -7812734394886606427L;
-	
+//	private static final long serialVersionUID = -7812734394886606427L;
+	private static final long serialVersionUID = 1L;
+
 	private String tableName;
 	private String tableComment;
 	

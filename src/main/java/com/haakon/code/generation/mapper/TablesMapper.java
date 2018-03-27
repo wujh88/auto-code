@@ -1,11 +1,11 @@
-package com.lance.code.generation.mapper;
+package com.haakon.code.generation.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.lance.code.generation.domain.ColumnInfo;
-import com.lance.code.generation.domain.TableInfo;
+import com.haakon.code.generation.domain.ColumnInfo;
+import com.haakon.code.generation.domain.TableInfo;
 
 public interface TablesMapper {
 

@@ -1,4 +1,4 @@
-package com.lance.code.generation.common;
+package com.haakon.code.generation.common;
 
 public interface KeyWords {
 	String STRING = "String";

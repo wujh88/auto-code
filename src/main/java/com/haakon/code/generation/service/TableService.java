@@ -1,8 +1,8 @@
-package com.lance.code.generation.service;
+package com.haakon.code.generation.service;
 
 import java.util.List;
 
-import com.lance.code.generation.domain.TableInfo;
+import com.haakon.code.generation.domain.TableInfo;
 
 public interface TableService {
 

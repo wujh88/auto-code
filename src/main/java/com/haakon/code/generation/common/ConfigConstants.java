@@ -1,4 +1,4 @@
-package com.lance.code.generation.common;
+package com.haakon.code.generation.common;
 
 public interface ConfigConstants {
 	/**定义Schema*/
@@ -20,7 +20,7 @@ public interface ConfigConstants {
 	String SQL_MAPPER_SUFFIX = "Mapper";
 	
 	/**生成包名称*/
-	String ROOT_PACKAGE = "com.lance";
+	String ROOT_PACKAGE = "com.haakon";
 	
 	/**JavaBean包名称*/
 	String DOMAIN_PACKAGE = "model";

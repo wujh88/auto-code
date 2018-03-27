@@ -1,11 +1,11 @@
-package com.lance.code.generation.common;
+package com.haakon.code.generation.common;
 
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.lance.code.generation.domain.ColumnInfo;
-import com.lance.code.generation.domain.TableInfo;
+import com.haakon.code.generation.domain.ColumnInfo;
+import com.haakon.code.generation.domain.TableInfo;
 
 public final class XMLMethod {
 

@@ -1,4 +1,4 @@
-package com.lance.code.generation.service;
+package com.haakon.code.generation.service;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,16 +9,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import com.lance.code.generation.mapper.TablesMapper;
+import com.haakon.code.generation.common.JavaBeanHandler;
+import com.haakon.code.generation.mapper.TablesMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lance.code.generation.common.ConfigConstants;
-import com.lance.code.generation.common.JavaBeanHandler;
-import com.lance.code.generation.domain.ColumnInfo;
-import com.lance.code.generation.domain.TableInfo;
+import com.haakon.code.generation.common.ConfigConstants;
+import com.haakon.code.generation.domain.ColumnInfo;
+import com.haakon.code.generation.domain.TableInfo;
 
 @Service
 public class TableServiceImpl implements TableService {

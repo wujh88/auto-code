@@ -1,4 +1,4 @@
-package com.lance.code.generation.domain;
+package com.haakon.code.generation.domain;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author Administrator
  */
 public class ColumnInfo implements Serializable{
-	private static final long serialVersionUID = -80438187908217823L;
+	private static final long serialVersionUID = 1L;
 	
 	private String columnName;
 	private String columnComment;

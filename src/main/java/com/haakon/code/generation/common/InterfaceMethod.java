@@ -1,10 +1,10 @@
-package com.lance.code.generation.common;
+package com.haakon.code.generation.common;
 
 import java.util.Date;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
-import com.lance.code.generation.domain.TableInfo;
+import com.haakon.code.generation.domain.TableInfo;
 
 public final class InterfaceMethod {
 
@@ -20,7 +20,7 @@ public final class InterfaceMethod {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* 保存对象")
 		.append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append("* ").append("@author SinoTech")
+		.append(KeyWords.Tab).append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
@@ -46,7 +46,7 @@ public final class InterfaceMethod {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* 修改对象")
 		.append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append("* ").append("@author SinoTech")
+		.append(KeyWords.Tab).append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
@@ -72,7 +72,7 @@ public final class InterfaceMethod {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* 删除对象")
 		.append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append("* ").append("@author SinoTech")
+		.append(KeyWords.Tab).append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
@@ -96,7 +96,7 @@ public final class InterfaceMethod {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* 根据ID查询对象")
 		.append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append("* ").append("@author SinoTech")
+		.append(KeyWords.Tab).append("* ").append("@author haakon")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("* ").append("@since ").append(DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"))
 		.append(KeyWords.NEWLINE)
