@@ -60,4 +60,10 @@ public interface KeyWords {
 	
 	/**Tab符号*/
 	String Tab = "\t";
+
+	String RESULT_COLUMN = "<result column=\"";
+	String ID_COLUMN = "<id column=\"";
+	String PROPERTY = "\" property=\"";
+	String JDBC_TYPE= "\" jdbcType=\"";
+	String MAPPER_OVER = "\" />";
 }

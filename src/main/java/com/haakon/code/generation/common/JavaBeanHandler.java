@@ -221,7 +221,22 @@ public class JavaBeanHandler {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<!-- ").append(info.getTableComment()).append(" -->")
 		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE)
-		
+
+		//resultMap
+		.append(KeyWords.Tab).append("<resultMap id=\"BaseResultMap\" type=\"")
+		.append(domainPackage()).append(KeyWords.DOT)
+		.append(className(info.getTableName(), "")).append("\">")
+		.append(KeyWords.NEWLINE);
+		for(ColumnInfo c: columns) {
+			builder.append(KeyWords.Tab).append(KeyWords.Tab)
+			.append(c.isPrimaryKey() ? KeyWords.ID_COLUMN : KeyWords.RESULT_COLUMN)
+			.append(c.getColumnName()).append(KeyWords.PROPERTY).append(attrName(c.getColumnName(), false))
+			.append(KeyWords.JDBC_TYPE).append(c.getDataType().toUpperCase()).append(KeyWords.MAPPER_OVER)
+			.append(KeyWords.NEWLINE);
+		}
+		builder.append(KeyWords.Tab).append("</resultMap>")
+		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE)
+
 		//Save对象
 		.append(XMLMethod.xmlSave(info, columns))
 		.append(KeyWords.NEWLINE)
