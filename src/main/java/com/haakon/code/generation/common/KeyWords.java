@@ -66,4 +66,6 @@ public interface KeyWords {
 	String PROPERTY = "\" property=\"";
 	String JDBC_TYPE= "\" jdbcType=\"";
 	String MAPPER_OVER = "\" />";
+
+	String KEY_PRIMARY = "pri";
 }

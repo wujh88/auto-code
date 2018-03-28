@@ -1,5 +1,6 @@
 package com.haakon.code.generation.common;
 
+import java.security.Key;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
@@ -123,19 +124,26 @@ public final class XMLMethod {
 		.append("\">")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append(KeyWords.Tab)
-		.append("update ").append(info.getTableName()).append(" set ");
+		.append("update ").append(info.getTableName()).append(KeyWords.NEWLINE)
+		.append(KeyWords.Tab).append(KeyWords.Tab).append("set");
 		
 		for(ColumnInfo column: columns) {
-			if(!StringUtils.equalsIgnoreCase(column.getColumnName(), "id")) {
-				builder.append(KeyWords.NEWLINE).append(KeyWords.Tab).append(KeyWords.Tab).append(column.getColumnName()).append(" = ")
+			if(!StringUtils.equalsIgnoreCase(column.getColumnKey(), KeyWords.KEY_PRIMARY)) {
+				builder.append(KeyWords.NEWLINE).append(KeyWords.Tab).append(KeyWords.Tab).append(KeyWords.Tab).append(column.getColumnName()).append(" = ")
 				.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false)).append("},");
 			}
 		}
 		
-		builder.append(" where id=#{id}")
-		.append(KeyWords.NEWLINE)
+		builder.append(" where ");
+		for(ColumnInfo column: columns) {
+			if(StringUtils.equalsIgnoreCase(column.getColumnKey(), KeyWords.KEY_PRIMARY)) {
+				builder.append(column.getColumnName()).append(KeyWords.EQUAL)
+						.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false)).append("},");
+			}
+		}
+		builder.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("</update>")
 		.append(KeyWords.NEWLINE);
-		return StringUtils.replace(builder.toString(), ", where", " where"); 
+		return StringUtils.replace(builder.toString(), ", where", "\r\n\t\twhere");
 	}
 }
