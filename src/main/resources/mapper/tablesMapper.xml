@@ -12,6 +12,6 @@
 		select column_name, column_comment,data_type,column_key
 		from Information_schema.columns 
 		where table_Name=#{tableName} and table_schema=#{schemaName}
-		order by column_key
+		order by column_key desc
 	</select>
 </mapper>

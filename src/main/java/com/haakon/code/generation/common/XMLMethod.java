@@ -16,7 +16,7 @@ public final class XMLMethod {
 	 * @return
 	 * @since 2018年3月24日上午10:43:56
 	 */
-	public static String xmlFindOne(TableInfo info) {
+	public static String xmlFindOne(TableInfo info, List<ColumnInfo> columns) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(KeyWords.Tab).append("<!-- 根据ID查询对象 -->").append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<select id=\"findOne\" resultType=\"")
@@ -26,11 +26,24 @@ public final class XMLMethod {
 		.append(KeyWords.Tab).append(KeyWords.Tab)
 		.append("select * from ")
 		.append(info.getTableName())
-		.append(" where id=#{value}")
 		.append(KeyWords.NEWLINE)
+		.append(KeyWords.Tab).append(KeyWords.Tab)
+		.append(" where ");
+		int i = 1;
+		for(ColumnInfo column: columns) {
+			if(i%5 == 0) {
+				builder.append(KeyWords.NEWLINE).append(KeyWords.Tab).append(KeyWords.Tab).append(KeyWords.Tab);
+			}
+			if(StringUtils.equalsIgnoreCase(column.getColumnKey(), KeyWords.KEY_PRIMARY)) {
+				builder.append(" and ").append(column.getColumnName()).append(KeyWords.EQUAL)
+						.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false)).append("}");
+			}
+			i++;
+		}
+		builder.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("</select>")
 		.append(KeyWords.NEWLINE);
-		return builder.toString(); 
+		return StringUtils.replace(builder.toString(), "where  and", "where");
 	}
 	
 	/**
@@ -39,7 +52,7 @@ public final class XMLMethod {
 	 * @return
 	 * @since 2018年3月24日上午10:43:56
 	 */
-	public static String xmlDelete(TableInfo info) {
+	public static String xmlDelete(TableInfo info, List<ColumnInfo> columns) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(KeyWords.Tab).append("<!-- 根据ID删除对象 -->").append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<delete id=\"delete\">")
@@ -47,11 +60,19 @@ public final class XMLMethod {
 		.append(KeyWords.Tab).append(KeyWords.Tab)
 		.append("delete from ")
 		.append(info.getTableName())
-		.append(" where id=#{value}")
 		.append(KeyWords.NEWLINE)
+		.append(KeyWords.Tab).append(KeyWords.Tab)
+		.append(" where ");
+		for(ColumnInfo column: columns) {
+			if(StringUtils.equalsIgnoreCase(column.getColumnKey(), KeyWords.KEY_PRIMARY)) {
+				builder.append(" and ").append(column.getColumnName()).append(KeyWords.EQUAL)
+						.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false)).append("}");
+			}
+		}
+		builder.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("</delete>")
 		.append(KeyWords.NEWLINE);
-		return builder.toString(); 
+		return StringUtils.replace(builder.toString(), "where  and", "where");
 	}
 	
 	/**
@@ -71,22 +92,33 @@ public final class XMLMethod {
 		.append("insert into ")
 		.append(info.getTableName())
 		.append("(");
+		int i = 1;
 		for(ColumnInfo column: columns) {
+			if(i%5 == 0) {
+				builder.append(KeyWords.NEWLINE).append(KeyWords.Tab).append(KeyWords.Tab).append(KeyWords.Tab);
+			}
 //			if(!column.isPrimaryKey()) {
 				builder.append(column.getColumnName()).append(",");
 //			}
+			i++;
 		}
+		i = 1;
 		builder.append(")")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append(KeyWords.Tab)
-		.append("values(").append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append(KeyWords.Tab);
+		.append("values (");
+//		.append(KeyWords.NEWLINE)
+//		.append(KeyWords.Tab).append(KeyWords.Tab);
 		for(ColumnInfo column: columns) {
+			if(i%5 == 0) {
+				builder.append(KeyWords.NEWLINE).append(KeyWords.Tab).append(KeyWords.Tab).append(KeyWords.Tab);
+			}
 //			if(!column.isPrimaryKey()) {
 				builder.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false))
 //						.append(",jdbcType=").append(column.getDataType())//数据库中数据类型
 						.append("},");
 //			}
+			i++;
 		}
 		
 		builder.append(")").append(KeyWords.NEWLINE)
@@ -137,13 +169,13 @@ public final class XMLMethod {
 		builder.append(" where ");
 		for(ColumnInfo column: columns) {
 			if(StringUtils.equalsIgnoreCase(column.getColumnKey(), KeyWords.KEY_PRIMARY)) {
-				builder.append(column.getColumnName()).append(KeyWords.EQUAL)
-						.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false)).append("},");
+				builder.append(" and ").append(column.getColumnName()).append(KeyWords.EQUAL)
+						.append("#{").append(JavaBeanHandler.attrName(column.getColumnName(), false)).append("}");
 			}
 		}
 		builder.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("</update>")
 		.append(KeyWords.NEWLINE);
-		return StringUtils.replace(builder.toString(), ", where", "\r\n\t\twhere");
+		return StringUtils.replace(builder.toString(), ", where  and", "\r\n\t\twhere");
 	}
 }

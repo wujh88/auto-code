@@ -246,11 +246,11 @@ public class JavaBeanHandler {
 		.append(KeyWords.NEWLINE)
 		
 		//删除对象
-		.append(XMLMethod.xmlDelete(info))
+		.append(XMLMethod.xmlDelete(info, columns))
 		.append(KeyWords.NEWLINE)
 		
 		//查询对象根据ID
-		.append(XMLMethod.xmlFindOne(info))
+		.append(XMLMethod.xmlFindOne(info, columns))
 		.append("</mapper>");
 		return builder.toString();
 	}
