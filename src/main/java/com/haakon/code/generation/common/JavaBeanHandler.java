@@ -11,6 +11,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
 
 import com.haakon.code.generation.domain.ColumnInfo;
 import com.haakon.code.generation.domain.TableInfo;
+import org.apache.ibatis.javassist.compiler.ast.Keyword;
 
 public class JavaBeanHandler {
 
@@ -92,7 +93,27 @@ public class JavaBeanHandler {
 		.append(RandomUtils.nextInt(1, Integer.MAX_VALUE)).append("L")
 		.append(KeyWords.SEMICOLON)
 		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE);
-		
+
+		//toString()
+		builder.append(KeyWords.Tab).append("@Override")
+		.append(KeyWords.NEWLINE).append(KeyWords.Tab)
+		.append("public String toString() {")
+		.append(KeyWords.NEWLINE).append(KeyWords.Tab).append(KeyWords.Tab)
+		.append(KeyWords.RETURN).append("\"").append(domainClassName(info.getTableName()))
+		.append("{\"").append(KeyWords.PLUS).append(KeyWords.NEWLINE);
+
+		for (ColumnInfo c:columns) {
+			builder.append(KeyWords.Tab).append(KeyWords.Tab).append(KeyWords.Tab)
+			.append("\", ").append(attrName(c.getColumnName(), false))
+			.append(" = '\"").append(KeyWords.PLUS)
+			.append(attrName(c.getColumnName(), false))
+			.append(" + '\\'' +").append(KeyWords.NEWLINE);
+		}
+		builder.append(KeyWords.Tab).append(KeyWords.Tab).append(KeyWords.Tab)
+		.append("'}';").append(KeyWords.NEWLINE)
+		.append(KeyWords.Tab).append("}")
+		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE);
+
 		//属性
 		for(ColumnInfo c: columns) {
 			builder.append(KeyWords.Tab)
@@ -132,7 +153,9 @@ public class JavaBeanHandler {
 
 		builder.append("}");
 		
-		return builder.toString();
+//		return builder.toString();
+		return StringUtils.replace(builder.toString(), "{\" +\r\n\t\t\t\",", "{\" +\n" +
+				"\t\t\t\"");
 	}
 	
 	//------------------------------------生成Mapper-----------------------------------------
