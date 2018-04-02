@@ -65,7 +65,7 @@ public final class InterfaceMethod {
 	 * @return
 	 * 2018年3月24日上午10:00:59
 	 */
-	public static String mapperDelete() {
+	public static String mapperDelete(TableInfo info) {
 		StringBuilder builder = new StringBuilder();
 		//实体类注释
 		builder.append(KeyWords.Tab).append("/**")
@@ -78,7 +78,9 @@ public final class InterfaceMethod {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("*/")
 		.append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append("int delete(int id);")
+		.append(KeyWords.Tab).append("int delete(")
+        .append(JavaBeanHandler.domainClassName(info.getTableName()))
+        .append(" info);")
 		.append(KeyWords.NEWLINE);
 		
 		return builder.toString();
@@ -102,7 +104,9 @@ public final class InterfaceMethod {
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("*/")
 		.append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append(JavaBeanHandler.domainClassName(info.getTableName())).append(" findOne(int id);")
+		.append(KeyWords.Tab).append(JavaBeanHandler.domainClassName(info.getTableName())).append(" findOne(")
+        .append(JavaBeanHandler.domainClassName(info.getTableName()))
+        .append(" info);")
 		.append(KeyWords.NEWLINE);
 		
 		return builder.toString();

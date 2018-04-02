@@ -20,7 +20,9 @@ public final class XMLMethod {
 		StringBuilder builder = new StringBuilder();
 		builder.append(KeyWords.Tab).append("<!-- 根据ID查询对象 -->").append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<select id=\"findOne\" resultType=\"")
-		.append(JavaBeanHandler.domainClassName(info.getTableName()))
+//		.append(JavaBeanHandler.domainClassName(info.getTableName()))
+		.append(JavaBeanHandler.domainPackage()).append(KeyWords.DOT)
+		.append(JavaBeanHandler.className(info.getTableName(), ""))
 		.append("\">")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append(KeyWords.Tab)
@@ -85,7 +87,9 @@ public final class XMLMethod {
 		StringBuilder builder = new StringBuilder();
 		builder.append(KeyWords.Tab).append("<!-- Save对象 -->").append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<insert id=\"save\" "+getPrimaryKey(columns)+" parameterType=\"")
-		.append(JavaBeanHandler.domainClassName(info.getTableName()))
+//		.append(JavaBeanHandler.domainClassName(info.getTableName()))
+		.append(JavaBeanHandler.domainPackage()).append(KeyWords.DOT)
+		.append(JavaBeanHandler.className(info.getTableName(), ""))
 		.append("\">")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append(KeyWords.Tab)
@@ -152,7 +156,9 @@ public final class XMLMethod {
 		StringBuilder builder = new StringBuilder();
 		builder.append(KeyWords.Tab).append("<!-- Update对象 -->").append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<update id=\"update\" parameterType=\"")
-		.append(JavaBeanHandler.domainClassName(info.getTableName()))
+//		.append(JavaBeanHandler.domainClassName(info.getTableName()))
+		.append(JavaBeanHandler.domainPackage()).append(KeyWords.DOT)
+		.append(JavaBeanHandler.className(info.getTableName(), ""))
 		.append("\">")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append(KeyWords.Tab)

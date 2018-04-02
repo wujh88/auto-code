@@ -217,7 +217,7 @@ public class JavaBeanHandler {
 		.append(InterfaceMethod.mapperUpdate(info))
 		.append(KeyWords.NEWLINE)
 		//删除对象
-		.append(InterfaceMethod.mapperDelete())
+		.append(InterfaceMethod.mapperDelete(info))
 		.append(KeyWords.NEWLINE)
 		//查询对象根据ID
 		.append(InterfaceMethod.mapperFindOne(info))
@@ -338,7 +338,7 @@ public class JavaBeanHandler {
 		.append(InterfaceMethod.mapperUpdate(info))
 		.append(KeyWords.NEWLINE)
 		//删除对象
-		.append(InterfaceMethod.mapperDelete())
+		.append(InterfaceMethod.mapperDelete(info))
 		.append(KeyWords.NEWLINE)
 		//查询对象根据ID
 		.append(InterfaceMethod.mapperFindOne(info))
