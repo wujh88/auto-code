@@ -85,7 +85,7 @@ public final class InterfaceMethod {
 	}
 	
 	/**
-	 * Delete Method
+	 * find Method
 	 * @return
 	 * 2018年3月24日上午10:00:59
 	 */

@@ -68,4 +68,6 @@ public interface KeyWords {
 	String MAPPER_OVER = "\" />";
 
 	String KEY_PRIMARY = "pri";
+
+	String OVERRIDER = "@Override";
 }

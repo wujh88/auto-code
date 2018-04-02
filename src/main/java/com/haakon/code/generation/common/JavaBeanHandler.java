@@ -389,7 +389,7 @@ public class JavaBeanHandler {
 		.append(KeyWords.SPACE).append(className(info.getTableName(), ConfigConstants.SERVICE_impl_PACKAGE))
 		.append(KeyWords.SPACE).append(KeyWords.IMPLEMENTS).append(KeyWords.SPACE)
 		.append(className(info.getTableName(), ConfigConstants.SERVICE_PACKAGE)).append("{")
-		.append(KeyWords.NEWLINE)
+		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab)
 		.append("@Autowired")
 		.append(KeyWords.NEWLINE)
@@ -397,6 +397,18 @@ public class JavaBeanHandler {
 		.append(KeyWords.PRIVATE).append(KeyWords.SPACE).append(importMapper)
 		.append(KeyWords.SPACE).append(StringUtils.uncapitalize(importMapper)).append(KeyWords.SEMICOLON)
 		.append(KeyWords.NEWLINE)
+		.append(KeyWords.NEWLINE)
+		//保存方法
+		.append(ServiceImplMethod.serviceSave(info,importMapper))
+		.append(KeyWords.NEWLINE)
+		//修改方法
+		.append(ServiceImplMethod.serviceUpdate(info,importMapper))
+		.append(KeyWords.NEWLINE)
+		//删除方法
+		.append(ServiceImplMethod.serviceDelete(info,importMapper))
+		.append(KeyWords.NEWLINE)
+		//查询方法
+		.append(ServiceImplMethod.serviceFindOne(info,importMapper))
 		.append(KeyWords.NEWLINE)
 		.append("}");
 		return builder.toString();
