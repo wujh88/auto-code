@@ -240,7 +240,7 @@ public class JavaBeanHandler {
 		.append(className(info.getTableName(), ConfigConstants.MAPPER_PACKAGE)).append("\">")
 		.append(KeyWords.NEWLINE)
 		//加入EhcacheCache缓存, 可以后期替换掉RedisCache
-		.append(KeyWords.Tab).append("<cache type=\"org.mybatis.caches.ehcache.EhcacheCache\"/>")
+//		.append(KeyWords.Tab).append("<cache type=\"org.mybatis.caches.ehcache.EhcacheCache\"/>")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append("<!-- ").append(info.getTableComment()).append(" -->")
 		.append(KeyWords.NEWLINE).append(KeyWords.NEWLINE)

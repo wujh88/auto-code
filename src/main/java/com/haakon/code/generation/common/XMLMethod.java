@@ -19,11 +19,7 @@ public final class XMLMethod {
 	public static String xmlFindOne(TableInfo info, List<ColumnInfo> columns) {
 		StringBuilder builder = new StringBuilder();
 		builder.append(KeyWords.Tab).append("<!-- 根据ID查询对象 -->").append(KeyWords.NEWLINE)
-		.append(KeyWords.Tab).append("<select id=\"findOne\" resultType=\"")
-//		.append(JavaBeanHandler.domainClassName(info.getTableName()))
-		.append(JavaBeanHandler.domainPackage()).append(KeyWords.DOT)
-		.append(JavaBeanHandler.className(info.getTableName(), ""))
-		.append("\">")
+		.append(KeyWords.Tab).append("<select id=\"findOne\" resultMap=\"BaseResultMap\">")
 		.append(KeyWords.NEWLINE)
 		.append(KeyWords.Tab).append(KeyWords.Tab)
 		.append("select * from ")
